@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flipmatic PDF Flipbook</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app__header">
+      <div>
+        <h1>Flipmatic</h1>
+        <p class="subtitle">Drag & drop a PDF, then drag or click the page to flip.</p>
+      </div>
+      <label class="file-picker" for="pdf-input">
+        <span>Choose PDF</span>
+        <input id="pdf-input" type="file" accept="application/pdf" />
+      </label>
+    </header>
+
+    <section class="dropzone" id="dropzone" aria-live="polite">
+      <div class="dropzone__content">
+        <p>Drop a PDF here to build a flipbook</p>
+        <p class="hint">Current page: <span id="page-indicator">0 / 0</span></p>
+      </div>
+      <div class="flipbook" id="flipbook" aria-label="PDF flipbook" role="group">
+        <div class="page page--back" id="page-back">
+          <canvas id="page-back-canvas"></canvas>
+        </div>
+        <div class="page page--front" id="page-front">
+          <canvas id="page-front-canvas"></canvas>
+        </div>
+        <div class="page page--flip" id="page-flip" aria-hidden="true">
+          <canvas id="page-flip-canvas"></canvas>
+          <div class="page-shadow"></div>
+        </div>
+      </div>
+      <div class="controls">
+        <button id="prev-btn" type="button" disabled>Previous</button>
+        <button id="next-btn" type="button" disabled>Next</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.2.67/pdf.min.js" integrity="sha512-LjZlRTIVegY2N83x/vlO3hzYECzF0vNcb3QF1V4AmCi1FEICXhF3MiJLJuXhSGU+V3vkDhR8Vd0lPduy7qH0sg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="app.js"></script>
+</body>
+</html>
